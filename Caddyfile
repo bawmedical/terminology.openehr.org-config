@@ -1,0 +1,7 @@
+{
+    email admin@openehr.org
+}
+
+terminology.openehr.org {
+    reverse_proxy ontoserver:8443
+}
