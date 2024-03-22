@@ -3,5 +3,5 @@
 }
 
 terminology.openehr.org {
-    reverse_proxy https://ontoserver:8443
+    reverse_proxy ontoserver:8443
 }
