@@ -22,6 +22,7 @@ services:
 
   # postgres - database for ontoserver
   db:
+    <<: *global # this will inherit standard configs from x-global-environment
     image: postgres:12
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -35,6 +36,7 @@ services:
 
   # ontoserver - main application
   ontoserver:
+    <<: *global # this will inherit standard configs from x-global-environment
     image: quay.io/aehrc/ontoserver:ctsa-6 # !!!! requires access to this private quay.io repo
 #    container_name: ontoserver (commented out as unnecessary)
 #    read_only: true (application does not work if filesystem is read only!)
