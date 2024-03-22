@@ -1,14 +1,19 @@
 # docker compose file for openEHR ontoserver terminology.openehr.org
 
+x-global-environment: &global
+  networks:
+    - caddy
+  restart: unless-stopped
+
 services:
 
   # Caddy - auto-HTTPS web server
   caddy:
+    <<: *global # this will inherit standard configs from x-global-environment
     image: caddy
     ports:
       - "80:80"
       - "443:443"
-    restart: always
     volumes:
       - caddy-data:/data/
       - caddy-data:/config/
@@ -58,3 +63,6 @@ volumes:
     driver: local
   caddy-data:
     driver: local
+
+networks:
+  caddy:
